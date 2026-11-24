@@ -8,14 +8,14 @@
   "theme_color": "#2563eb",
   "icons": [
     {
-      "src": "./CatLan.jpeg",
+      "src": "./CatLan.png",
       "sizes": "192x192",
-      "type": "image/jpeg"
+      "type": "image/png"
     },
     {
-      "src": "./CatLan.jpeg",
+      "src": "./CatLan.png",
       "sizes": "512x512",
-      "type": "image/jpeg"
+      "type": "image/png"
     }
   ]
 }
