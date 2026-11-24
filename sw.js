@@ -1,9 +1,9 @@
-const CACHE_NAME = "catlan-v3";
+const CACHE_NAME = "catlan-v2";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
   "./manifest.json",
-  "./CatLan.png"
+  "./CatLan.jpeg"
 ];
 
 self.addEventListener("install", (event) => {
