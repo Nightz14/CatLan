@@ -37,6 +37,16 @@
       }
     };
   </script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker
+          .register("./sw.js")
+          .then((reg) => console.log("SW terdaftar:", reg.scope))
+          .catch((err) => console.error("SW gagal:", err));
+      });
+    }
+  </script>
 
   <style>
     /* Pengaturan dasar agar bersih, kontras tinggi, dan nyaman untuk mata lansia */
