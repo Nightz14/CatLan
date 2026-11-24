@@ -1,9 +1,8 @@
-const CACHE_NAME = "catlan-v2";
+const CACHE_NAME = "catlan-v1";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
-  "./manifest.json",
-  "./CatLan.jpeg"
+  "./manifest.json"
 ];
 
 self.addEventListener("install", (event) => {
@@ -33,26 +32,7 @@ self.addEventListener("fetch", (event) => {
 
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-
-      return fetch(event.request).then((networkResponse) => {
-        if (
-          !networkResponse ||
-          networkResponse.status !== 200 ||
-          networkResponse.type !== "basic"
-        ) {
-          return networkResponse;
-        }
-
-        const responseToCache = networkResponse.clone();
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, responseToCache);
-        });
-
-        return networkResponse;
-      });
+      return cachedResponse || fetch(event.request);
     })
   );
 });
